@@ -22,6 +22,12 @@ function chargeEventListeners() {
 
     //Remove courses from cart
     carrito.addEventListener("click", removeCourses)
+
+    //Empty cart
+    emptyCarrito.addEventListener("click", () => {
+        cartArticles = [] //Restart the cartArticlesArray
+        deleteCourses() //To clean all HTML
+    })
 }
 
 
