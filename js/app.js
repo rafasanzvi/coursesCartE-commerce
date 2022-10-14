@@ -23,6 +23,13 @@ function chargeEventListeners() {
     //Remove courses from cart
     carrito.addEventListener("click", removeCourses)
 
+    //Show the courses saved in localStorage
+    document.addEventListener("DOMContentLoaded", () => {
+        cartArticles = JSON.parse( localStorage.getItem("carrito")) || []
+
+        htmlCart()
+    })
+
     //Empty cart
     emptyCarrito.addEventListener("click", () => {
         cartArticles = [] //Restart the cartArticlesArray
@@ -119,6 +126,13 @@ function htmlCart() {
         containerCarrito.appendChild(row)
     })
 
+    //Add buy cart to the storage
+    synchroniseLocalStorage()
+
+}
+
+function synchroniseLocalStorage() {
+    localStorage.setItem("carrito", JSON.stringify(cartArticles))
 }
 
 //Delete courses from tbody
